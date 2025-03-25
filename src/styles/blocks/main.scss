@@ -5,6 +5,7 @@ body {
   width: 100vw;
   height: 100vh;
   margin: 0;
+  background-color:rgb(92, 84, 75)
 }
 
 .stopwatch {
@@ -13,12 +14,23 @@ body {
   align-items: center;
   height: $watchSize;
   width: $watchSize;
-  border: 1vmin dotted #000;
+  border: 1vmin solid #000;
   border-radius: 50%;
-
+  background-color: rgb(228, 220, 220);
+  background-image:url(https://foni.papik.pro/uploads/posts/2024-09/foni-papik-pro-xtlj-p-kartinki-chasovoi-tsiferblat-na-prozrachno-2.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover ;
   &__details {
     position: absolute;
 
+    &--hours {
+      height: $hoursLength;
+      width: $hoursWidth;
+      background-color: $hoursColor;
+      transform-origin: 50% 100%;
+      animation: spin 3600s steps(60) infinite;
+    }
     &--minutes {
       height: $minutesLength;
       width: $minutesWidth;
@@ -45,11 +57,14 @@ body {
 }
 
 .stopwatch--speed-up {
+  .stopwatch__details--hours {
+    animation: spin 216000s steps(60) infinite;
+  }
   .stopwatch__details--minutes {
-    animation: spin 600s steps(60) infinite;
+    animation: spin 3600s steps(60) infinite;
   }
 
   .stopwatch__details--seconds {
-    animation: spin 10s linear infinite;
+    animation: spin 60s linear infinite;
   }
 }
